@@ -103,15 +103,15 @@ let state = {
 // create our geometry and material
 let geometry = new THREE.SphereGeometry(2, 45, 45);
 
-let mesh = createSculptureWithGeometry(geometry, spCode(), () => ({
-
-  time: state.time,
-  pointerDown: state.pointerDown,
-  mouse: state.mouse,
-  audio: state.audio,
-  size: state.size,
-
-}))
+let mesh = createSculptureWithGeometry(geometry, spCode(), () => {
+  return {
+    time: state.time,
+    pointerDown: state.pointerDown,
+    mouse: state.mouse,
+    audio: state.audio,
+    size: state.size,
+  }
+})
 
 scene.add(mesh);
 
