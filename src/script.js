@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { createSculptureWithGeometry } from 'shader-park-core'
 import { spCode } from '/sp-code.js';
-
+import audio from '/assets/alice.mp3'
 // Scene
 const scene = new THREE.Scene()
 // scene.background = new THREE.Color(0xFF5733)
@@ -35,7 +35,7 @@ window.addEventListener('resize', () => {
 
 // Camera
 let camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-camera.position.z = 2;
+camera.position.z = 3;
 
 // AUDIO
 // create an AudioListener and add it to the camera
@@ -51,7 +51,7 @@ playButton.innerHTML = "Loading Audio..."
 
 // load a sound and set it as the Audio object's buffer
 const audioLoader = new THREE.AudioLoader();
-audioLoader.load('/assets/alice.mp3', function (buffer) {
+audioLoader.load(audio, function (buffer) {
   sound.setBuffer(buffer);
   sound.setLoop(true);
   sound.setVolume(0.5);
@@ -114,7 +114,6 @@ let mesh = createSculptureWithGeometry(geometry, spCode(), () => {
     mouse: state.mouse,
     audio: state.audio,
     size: state.size,
-    _scale: .5,
   }
 })
 
