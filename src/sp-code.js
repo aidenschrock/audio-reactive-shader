@@ -2,6 +2,7 @@ export function spCode() {
   return `
       let audio = input();
       let pointerDown = input();
+      let size = input();
      
      
       
