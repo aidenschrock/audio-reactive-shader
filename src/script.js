@@ -109,7 +109,7 @@ let mesh = createSculptureWithGeometry(geometry, spCode(), () => {
     pointerDown: state.pointerDown,
     mouse: state.mouse,
     audio: state.audio,
-    size: state.size,
+
   }
 })
 
