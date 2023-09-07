@@ -89,8 +89,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 let clock = new THREE.Clock();
 
 
-
-
 let state = {
   mouse: new THREE.Vector3(),
   currMouse: new THREE.Vector3(),
@@ -104,18 +102,16 @@ let state = {
 
 // create our geometry and material
 let geometry = new THREE.SphereGeometry(2, 45, 45);
-// let material = new THREE.MeshBasicMaterial({ color: 0x33aaee });
-// let mesh = new THREE.Mesh(geometry, material);
 
-let mesh = createSculptureWithGeometry(geometry, spCode(), () => {
-  return {
-    time: state.time,
-    pointerDown: state.pointerDown,
-    mouse: state.mouse,
-    audio: state.audio,
-    size: state.size,
-  }
-})
+let mesh = createSculptureWithGeometry(geometry, spCode(), () => ({
+
+  time: state.time,
+  pointerDown: state.pointerDown,
+  mouse: state.mouse,
+  audio: state.audio,
+  size: state.size,
+
+}))
 
 scene.add(mesh);
 
